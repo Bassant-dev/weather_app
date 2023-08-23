@@ -21,9 +21,59 @@ factory WeatherModel.fromJson(dynamic data){
      maxtemp:jsonData['maxtemp_c'],
      weatherstatenam: jsonData['condition']['text']);
 }
-@override
-  String toString() {
-
-    return 'temp=$temp mintemp=$mintemp ';
+// @override
+//   String toString() {
+//
+//     return 'temp=$temp mintemp=$mintemp ';
+//   }
+  String getImage()
+  {
+   if(weatherstatenam=='Clear')
+  {
+  return 'assets/image/clear (1).png';
   }
+   else if(weatherstatenam=='Sunny')
+    {
+      return 'assets/image/sun.png';
+    }
+
+    else if(weatherstatenam=='Partly Cloudy')
+    {
+      return 'assets/image/cloudy (1).png';
+    }
+    // else if(weatherstatenam=='Moderate rain')
+    // {
+    //   return 'assets/image/rain.png';
+    // }
+    // else if(weatherstatenam=='Patchy rain possible')
+    // {
+    //   return 'assets/image/rain.png';
+    // }
+   return 'assets/image/rain.png';
+  }
+  // MaterialColor getThemeColor()
+  // {
+  //   if(weatherState=='Sunny')
+  //   {
+  //     return Colors.orange;
+  //   }
+  //   else if(weatherState=='Clear')
+  //   {
+  //     return Colors.cyan;
+  //   }
+  //   else if(weatherState=='Partly Cloudy')
+  //   {
+  //     return Colors.blueGrey;
+  //   }
+  //   else if(weatherState=='Moderate rain')
+  //   {
+  //     return Colors.indigo;
+  //   }
+  //   else if(weatherState=='Patchy rain possible')
+  //   {
+  //     return Colors.blue;
+  //   }
+  //   return Colors.grey;
+  // }
+
 }

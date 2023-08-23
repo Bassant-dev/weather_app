@@ -10,7 +10,7 @@ class WeatherServices
   {
 
 Uri url=Uri.parse(
-    '$baseUrl/current.json?key=$apiKey&q=$cityName'
+    '$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=5&aqi=no&alerts=no'
 );
 http.Response response = await http.get(url);
 Map<String,dynamic> data=jsonDecode(response.body);
