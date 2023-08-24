@@ -52,7 +52,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ):Container(
-        height: 500,
+
         decoration: BoxDecoration(
 
             gradient: LinearGradient(
