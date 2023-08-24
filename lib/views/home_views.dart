@@ -52,7 +52,18 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ):Container(
-        color: Colors.orange,
+        height: 500,
+        decoration: BoxDecoration(
+
+            gradient: LinearGradient(
+                colors:
+            [
+             Data!.getThemeColor(),
+              Data!.getThemeColor()[300]!,
+              Data!.getThemeColor()[100]!,
+
+            ],begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
