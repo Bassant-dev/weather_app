@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/provider/weather_provider.dart';
 import 'package:weather_app/views/home_views.dart';
+import 'package:weather_app/views/splash_screen.dart';
 void main() {
   runApp(ChangeNotifierProvider(create:(context)
   {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
 
         ),
         debugShowCheckedModeBanner: false,
-      home: HomeView()
+      home:MyHomePage()
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class WeatherModel{
   String date;
@@ -17,7 +18,7 @@ factory WeatherModel.fromJson(dynamic data){
  var jsonData=data['forecast']['forecastday'][0]['day'];
 
  return WeatherModel(
-     date: data['location']['localtime'],
+     date: DateFormat().add_jms().format(DateTime.parse(data['location']['localtime'],)),
      temp: jsonData['avgtemp_c'],
      mintemp:jsonData['mintemp_c'],
      maxtemp:jsonData['maxtemp_c'],
@@ -38,7 +39,7 @@ factory WeatherModel.fromJson(dynamic data){
     {
       return 'assets/image/clear (1).png';
     }
-    else if(weatherstatenam=='Partly Cloudy')
+    else if(weatherstatenam=='Partly cloudy')
     {
       return 'assets/image/cloudy (1).png';
     }

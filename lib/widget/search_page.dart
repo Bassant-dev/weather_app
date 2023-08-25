@@ -22,10 +22,13 @@ VoidCallback?updateUi;
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: TextField(
+            onChanged: (data){
+              CityName=data;
+            },
 onSubmitted:(data)async{
 CityName=data;
 WeatherServices services=WeatherServices();
-WeatherModel weather2=await services.getWeather(cityName: CityName!);
+WeatherModel? weather2=await services.getWeather(cityName: CityName!);
 Provider.of<WeatherProvider>(context,listen: false).weatherData=weather2;
 
 Provider.of<WeatherProvider>(context, listen: false).cityName = CityName;
@@ -36,7 +39,19 @@ Navigator.pop(context);
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 35,horizontal: 16),
               label: Text('search'),
-              suffixIcon: Icon(Icons.search),
+              suffixIcon: GestureDetector
+                (
+                onTap: ()async{
+                  WeatherServices services=WeatherServices();
+                  WeatherModel? weather2=await services.getWeather(cityName: CityName!);
+                  Provider.of<WeatherProvider>(context,listen: false).weatherData=weather2;
+
+                  Provider.of<WeatherProvider>(context, listen: false).cityName = CityName;
+
+                  Navigator.pop(context);
+
+                },
+                  child: Icon(Icons.search)),
               border: OutlineInputBorder(),
               hintText: 'Enter City'
             ),

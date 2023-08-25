@@ -4,9 +4,6 @@ import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/provider/weather_provider.dart';
 import 'package:weather_app/widget/search_page.dart';
 
-import '../widget/no_veather_body.dart';
-
-
 class HomeView extends StatelessWidget {
    HomeView({Key? key}) : super(key: key);
    String ?cityName;
@@ -37,17 +34,12 @@ class HomeView extends StatelessWidget {
             children: [
 
               Text(
-                'there is no weather 😔 start',
+                'there is no weather 😔 \n start searching now 🔍',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize:30,
                 ),
               ),
-              Text(
-                'searching now 🔍',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              )
+
             ],
           ),
         ),
@@ -73,7 +65,11 @@ class HomeView extends StatelessWidget {
               Text(
                   Provider.of<WeatherProvider>(context).cityName!,
                 style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
-              Text( 'updated at:${Data!.date.toString()}',style: TextStyle(fontSize: 24)),
+              const SizedBox(
+                height: 32,
+              ),
+
+              Text( 'updated at ${Data!.date.toString()}',style: TextStyle(fontSize: 24)),
               const SizedBox(
                 height: 32,
               ),
